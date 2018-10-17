@@ -33,6 +33,10 @@ h3 {
     background-color: #ff704d;
 }
 
+.desc {
+    word-break: break-word;
+}
+
 .todo tr:nth-child(even) {
     background-color: #ff5c33;
 }
@@ -94,7 +98,7 @@ h3 {
   <table width='100%'>
   {% for task in todo_tasks %}
   <tr><td>{{ loop.index }}.</td>
-      <td>{{ task.description }} 
+      <td class="desc">{{ task.description }} 
           {% if 'project' in task %}
           <span class='project'>[{{ task.project }}]</span>
           {% endif %}
@@ -117,7 +121,7 @@ h3 {
   <table width='100%'>
   {% for task in started_tasks %}
   <tr><td>{{ loop.index }}.</td>
-      <td>{{ task.description }}
+      <td class="desc">{{ task.description }}
           {% if 'project' in task %}
           <span class='project'>[{{ task.project }}]</span>
           {% endif %}
@@ -140,7 +144,7 @@ h3 {
   <table width='100%'>
   {% for task in completed_tasks %}
   <tr><td class="uuid">{{ task.uuid[:4] + '<wbr>' + task.uuid[4:8] }}</td>
-      <td><s>{{ task.description }}</s>
+      <td class="desc"><s>{{ task.description }}</s>
           {% if 'project' in task %}
           <span class='project'>[{{ task.project }}]</span>
           {% endif %}
